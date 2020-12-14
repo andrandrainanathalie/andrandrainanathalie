@@ -569,7 +569,7 @@
                       </div>
                       <div class="row">
                         <div class="col">
-                          <button class="btn btn-primary" type="submit">Send</button>
+                          <button class="btn btn-primary" type="submit" onclick="envoi()">Send</button>
                         </div>
                       </div>
                     </form>
@@ -578,7 +578,7 @@
                 <div class="col-md-6">
                   <div class="card-body">
                     <p class="mb-0"><strong>Address </strong></p>
-                    <p class="pb-2">II 19 IBIS Morarano, Nosivavaka</p>
+                    <p class="pb-2">II 19 IBIS Morarano, Anosivavaka</p>
                     <p class="mb-0"><strong>Phone</strong></p>
                     <p class="pb-2">+261 34 45 042 09</p>
                     <p class="mb-0"><strong>Email</strong></p>
@@ -611,6 +611,7 @@
     <script src="js/core/bootstrap.min.js"></script>
     <script src="js/now-ui-kit.js?v=1.1.0"></script>
     <script src="js/aos.js"></script>
+    <script src="js/smtp.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
@@ -623,7 +624,7 @@
     Host : "smtp.gmail.com",
     Username : "nathalie.aps.p2@gmail.com",
     Password : "js-Bmw06?",
-    To : 'nathalie.aps.p2@gmail.com',
+    To : 'nathalie.hebergement@gmail.com',
     From : "nathalie.aps.p2@gmail.com",
     Subject : "This is the subject",
     Body : "And this is the body"
