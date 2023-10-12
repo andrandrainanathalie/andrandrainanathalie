@@ -61,7 +61,6 @@
         <div class="col-lg-6 col-md-12">
           <div class="card-body">
             <div class="h4 mt-0 title">About</div>
-            <p><?php echo "TESTTTTT" ?>
             <p>Hello! I am Nathalie ANDRANDRAINA. Developer, Web Designer and Data scientist.</p>
             <p>Spirit of excellence and creativity,</p>
             <p>Always wanting the best,</p>
