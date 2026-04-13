@@ -3,83 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nathalie Andrandraina - Data Analyst</title>
+<title>Nathalie | Data Analyst</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background: #f5f7fa;
-    color: #333;
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: white;
 }
 
 .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
+/* HEADER */
 .header {
-    text-align: center;
-    padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
 }
 
 .header h1 {
-    margin: 0;
-    font-size: 32px;
+  font-size: 28px;
 }
 
-.header p {
-    color: #666;
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #94a3b8;
 }
 
-.section {
-    background: white;
-    margin-bottom: 20px;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+/* HERO */
+.hero {
+  margin-bottom: 80px;
 }
 
-.section h2 {
-    margin-bottom: 15px;
-    color: #2c3e50;
+.hero h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
 }
 
-.skills span {
-    display: inline-block;
-    background: #3498db;
-    color: white;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 20px;
-    font-size: 13px;
+.hero span {
+  color: #38bdf8;
 }
 
+.hero p {
+  color: #94a3b8;
+  max-width: 500px;
+}
+
+/* CARD */
+.card {
+  background: #1e293b;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+/* SKILLS */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill {
+  background: #38bdf8;
+  color: black;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 13px;
+}
+
+/* EXPERIENCE */
 .job {
-    margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .job h3 {
-    margin: 0;
-    color: #34495e;
+  margin-bottom: 5px;
 }
 
 .job span {
-    font-size: 12px;
-    color: #888;
+  font-size: 12px;
+  color: #94a3b8;
 }
 
 ul {
-    padding-left: 20px;
+  margin-top: 10px;
+  padding-left: 20px;
 }
 
+ul li {
+  margin-bottom: 6px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* FOOTER */
 .footer {
-    text-align: center;
-    color: #888;
-    margin-top: 20px;
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 40px;
 }
 </style>
 </head>
@@ -89,85 +130,82 @@ ul {
 <div class="container">
 
 <div class="header">
-    <h1>Nathalie Andrandraina</h1>
-    <p>Data Analyst | BI Developer | SQL | Python | Google Cloud</p>
+  <h1>Nathalie</h1>
+  <div class="nav">
+    <a href="#">About</a>
+    <a href="#">Skills</a>
+    <a href="#">Experience</a>
+  </div>
 </div>
 
-<div class="section">
-    <h2>Profile</h2>
-    <p>
-        Data Analyst with 5+ years of experience in data analysis, reporting, and business intelligence.
-        Skilled in SQL, Python, and data visualization. Experienced in analyzing large datasets,
-        building dashboards, and delivering actionable insights.
-        Currently expanding skills in Google Cloud (BigQuery, Looker) and ETL processes.
-    </p>
+<div class="hero">
+  <h2>Data Analyst <br><span>& BI Developer</span></h2>
+  <p>
+    I transform data into insights. Specialized in SQL, Python, and data visualization.
+    Currently working on Google Cloud (BigQuery, Looker).
+  </p>
 </div>
 
-<div class="section">
-    <h2>Skills</h2>
-    <div class="skills">
-        <span>SQL</span>
-        <span>Python</span>
-        <span>BigQuery</span>
-        <span>Looker</span>
-        <span>Power BI</span>
-        <span>Data Analysis</span>
-        <span>ETL</span>
-        <span>NEON</span>
-        <span>C#</span>
-        <span>JavaScript</span>
-    </div>
+<div class="grid">
+
+<div class="card">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">SQL</div>
+    <div class="skill">Python</div>
+    <div class="skill">BigQuery</div>
+    <div class="skill">Looker</div>
+    <div class="skill">Power BI</div>
+    <div class="skill">ETL</div>
+    <div class="skill">C#</div>
+    <div class="skill">JavaScript</div>
+  </div>
 </div>
 
-<div class="section">
-    <h2>Experience</h2>
-
-    <div class="job">
-        <h3>Data Analyst / BI Developer - Konecta</h3>
-        <span>2020 - Present</span>
-        <ul>
-            <li>Analyzed 50,000+ customer interactions monthly</li>
-            <li>Built dashboards and reports for performance tracking</li>
-            <li>Developed SQL queries for data extraction and transformation</li>
-            <li>Automated reporting using Python</li>
-            <li>Delivered insights for business decision-making</li>
-        </ul>
-    </div>
-
-    <div class="job">
-        <h3>Data Developer - SmartOne</h3>
-        <span>2018 - 2020</span>
-        <ul>
-            <li>Developed data processing tools</li>
-            <li>Built real-time dashboards</li>
-            <li>Performed data analysis for business reporting</li>
-        </ul>
-    </div>
+<div class="card">
+  <h2>Projects</h2>
+  <ul>
+    <li>Call Center Analytics Dashboard</li>
+    <li>Customer Data Reporting System</li>
+    <li>Automation Scripts in Python</li>
+  </ul>
+</div>
 
 </div>
 
-<div class="section">
-    <h2>Projects</h2>
+<div class="card">
+  <h2>Experience</h2>
+
+  <div class="job">
+    <h3>Konecta - Data Analyst</h3>
+    <span>2020 - Present</span>
     <ul>
-        <li>Customer Performance Dashboard (SQL + Power BI)</li>
-        <li>Call Center Analytics (Python + SQL)</li>
-        <li>Data Automation Scripts (Python)</li>
+      <li>Analyzed 50,000+ customer interactions monthly</li>
+      <li>Built dashboards and reports</li>
+      <li>SQL data extraction and transformation</li>
+      <li>Python automation</li>
     </ul>
+  </div>
+
+  <div class="job">
+    <h3>SmartOne - Data Developer</h3>
+    <span>2018 - 2020</span>
+    <ul>
+      <li>Developed reporting tools</li>
+      <li>Real-time monitoring dashboard</li>
+    </ul>
+  </div>
+
 </div>
 
-<div class="section">
-    <h2>Education</h2>
-    <p>Master in Information Technology - IT University</p>
-</div>
-
-<div class="section">
-    <h2>Contact</h2>
-    <p>Email: nathalie.aps.p2@gmail.com</p>
-    <p>Phone: +261 34 45 042 09</p>
+<div class="card">
+  <h2>Contact</h2>
+  <p>Email: nathalie.aps.p2@gmail.com</p>
+  <p>Phone: +261 34 45 042 09</p>
 </div>
 
 <div class="footer">
-    <p>© Nathalie Andrandraina</p>
+  <p>© Nathalie | Data Analyst</p>
 </div>
 
 </div>
