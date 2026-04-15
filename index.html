@@ -761,6 +761,13 @@
       .hero { grid-template-columns: 280px 1fr; }
       .section::after { display: none; }
     }
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 26px;
+      display: block;
+    }
   </style>
 </head>
 <body class="lang-fr">
@@ -771,7 +778,7 @@
     <div class="topbar glass reveal">
       <div class="brand">
         <div class="brand-mark" style="overflow:hidden; padding:0;">
-          <img src="images/Nathalie.jpeg" alt="Nathalie" style="width:100%; height:100%; object-fit:cover; border-radius:14px;">
+          <img src="images/Nathalie.jpg" alt="Nathalie" style="width:100%; height:100%; object-fit:cover; border-radius:14px;">
         </div>
         <div class="brand-text">
           <strong data-lang="fr">CV Premium</strong>
@@ -799,10 +806,9 @@
 
     <div class="hero">
       <aside class="sidebar glass reveal">
-        <div class="photo-wrap">
-          <div class="photo"></div>
-        </div>
-
+      <div class="photo-wrap">
+        <img src="images/Nathalie.jpeg" alt="Nathalie" class="photo-img">
+      </div>
         <div class="name">Nathalie Andrandraina</div>
         <div class="role">Data Analyst • BI Developer</div>
 
