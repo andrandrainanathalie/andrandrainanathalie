@@ -1,1153 +1,1673 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nathalie Andrandraina | Data Analyst</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #070c15;
-      --bg-soft: #101827;
-      --panel: rgba(14, 20, 32, 0.84);
-      --panel-strong: rgba(10, 15, 26, 0.96);
-      --text: #f5f7fb;
-      --muted: #afb8ca;
-      --line: rgba(255,255,255,0.08);
-      --champagne: #d8c1a0;
-      --champagne-soft: #efe2d0;
-      --steel: #8ea1bc;
-      --steel-soft: #c1cedd;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --transition: 320ms cubic-bezier(.2,.8,.2,1);
-      --profile-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nathalie SOLOFOANDRANDRAINA | Data Analyst & BI Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+    --bg:#07111f;
+    --bg2:#0f1d33;
+
+    --card:#121e31;
+    --card2:#16253d;
+
+    --line:rgba(255,255,255,.07);
+
+    --primary:#38bdf8;
+    --primary2:#5eead4;
+    --primary3:#818cf8;
+
+    --text:#f8fafc;
+    --muted:#a7b7d0;
+
+    --shadow:0 20px 50px rgba(0,0,0,.35);
+
+    --radius:28px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top left, rgba(56,189,248,.14), transparent 22%),
+        radial-gradient(circle at bottom right, rgba(94,234,212,.14), transparent 24%),
+        linear-gradient(135deg,var(--bg),var(--bg2));
+    overflow-x:hidden;
+}
+
+/* ============================= */
+/* floating lights */
+/* ============================= */
+
+.blur{
+    position:fixed;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.18;
+    pointer-events:none;
+    z-index:0;
+}
+
+.blur.one{
+    background:#38bdf8;
+    top:-140px;
+    left:-120px;
+}
+
+.blur.two{
+    background:#14b8a6;
+    right:-120px;
+    bottom:-120px;
+}
+
+/* ============================= */
+/* container */
+/* ============================= */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:min(1250px, calc(100% - 30px));
+    margin:24px auto;
+}
+
+/* ============================= */
+/* topbar */
+/* ============================= */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+
+    padding:18px 24px;
+
+    border-radius:24px;
+
+    background:rgba(10,15,28,.72);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--line);
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:22px;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.logo{
+    width:68px;
+    height:68px;
+    border-radius:18px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.08);
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.logo-text h2{
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo-text p{
+    margin-top:4px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.top-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+/* ============================= */
+/* language switch */
+/* ============================= */
+
+.lang-switch{
+    display:flex;
+    padding:5px;
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.lang-btn{
+    border:none;
+    cursor:pointer;
+    padding:10px 16px;
+    border-radius:999px;
+    background:transparent;
+    color:var(--muted);
+    font-weight:700;
+    transition:.3s;
+}
+
+.lang-btn.active{
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    color:#06111f;
+}
+
+.btn{
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+
+    padding:14px 18px;
+
+    border-radius:16px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    background:rgba(255,255,255,.04);
+    color:white;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    color:#06111f;
+}
+
+/* ============================= */
+/* layout */
+/* ============================= */
+
+.hero{
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:22px;
+}
+
+/* ============================= */
+/* sidebar */
+/* ============================= */
+
+.sidebar{
+    background:rgba(13,21,37,.85);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.profile-top{
+    position:relative;
+    padding:35px 28px;
+    text-align:center;
+}
+
+.profile-top::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at top right, rgba(56,189,248,.16), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(94,234,212,.14), transparent 40%);
+}
+
+.avatar{
+    position:relative;
+
+    width:175px;
+    height:175px;
+
+    margin:auto;
+
+    border-radius:32px;
+
+    overflow:hidden;
+
+    border:3px solid rgba(255,255,255,.08);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.4);
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.name{
+    position:relative;
+    margin-top:22px;
+    font-size:32px;
+    font-weight:800;
+    line-height:1.1;
+}
+
+.role{
+    position:relative;
+    margin-top:12px;
+    color:var(--primary2);
+    font-size:13px;
+    letter-spacing:2px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.card{
+    margin:0 20px 18px;
+    padding:22px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:22px;
+}
+
+.card h3{
+    margin-bottom:18px;
+    color:var(--primary2);
+    font-size:14px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.info{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.info-item{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:14px;
+    word-break:break-word;
+}
+
+.info-item strong{
+    color:white;
+}
+
+.info-item a{
+    color:#7dd3fc;
+    text-decoration:none;
+}
+
+.info-item::before{
+    content:'';
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin-right:10px;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+
+.info-item:nth-child(1)::before{
+    background-image: url('icons/email.svg');
+}
+
+.info-item:nth-child(2)::before{
+    background-image: url('icons/phone.svg');
+}
+
+.info-item:nth-child(3)::before{
+    background-image: url('icons/linkedin.svg');
+}
+
+.info-item:nth-child(4)::before{
+    background-image: url('icons/github.svg');
+}
+
+.info-item:nth-child(5)::before{
+    background-image: url('icons/portfolio.svg');
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    padding:10px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.06);
+    font-size:13px;
+    font-weight:600;
+}
+
+/* ============================= */
+/* main */
+/* ============================= */
+
+.main{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.main-card{
+    background:rgba(13,21,37,.85);
+
+    border:1px solid var(--line);
+
+    border-radius:var(--radius);
+
+    padding:32px;
+
+    box-shadow:var(--shadow);
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:rgba(94,234,212,.08);
+
+    border:1px solid rgba(94,234,212,.14);
+
+    color:var(--primary2);
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+}
+
+.hero-title{
+    font-size:58px;
+    line-height:1.05;
+    font-weight:800;
+    max-width:850px;
+}
+
+.hero-title span{
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.summary{
+    margin-top:24px;
+    max-width:820px;
+    line-height:1.9;
+    color:var(--muted);
+    font-size:15px;
+}
+
+/* stats */
+
+.stats{
+    margin-top:30px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:16px;
+}
+
+.stat{
+    padding:24px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.stat h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.stat p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* ============================= */
+/* section */
+/* ============================= */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:26px;
+}
+
+.section-title .line{
+    width:36px;
+    height:2px;
+    background:linear-gradient(to right,var(--primary),transparent);
+}
+
+.section-title h2{
+    font-size:24px;
+}
+
+/* ============================= */
+/* timeline */
+/* ============================= */
+
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.timeline-item{
+    padding:26px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.3s;
+}
+
+.timeline-item:hover{
+    transform:translateY(-4px);
+}
+
+.timeline-date{
+    color:var(--primary2);
+    font-size:12px;
+    letter-spacing:1px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.timeline-item h3{
+    font-size:23px;
+}
+
+.company{
+    margin:10px 0 18px;
+    color:#7dd3fc;
+    font-weight:600;
+    font-size:14px;
+}
+
+.timeline-item ul{
+    padding-left:18px;
+    color:var(--muted);
+    line-height:1.95;
+    font-size:15px;
+}
+
+/* ============================= */
+/* project */
+/* ============================= */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.project{
+    padding:24px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.project .type{
+    color:var(--primary2);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+    margin-bottom:12px;
+}
+
+.project h3{
+    margin-bottom:14px;
+    font-size:20px;
+}
+
+.project p{
+    color:var(--muted);
+    line-height:1.85;
+    font-size:14px;
+}
+
+.project-tags{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* ============================= */
+/* footer */
+/* ============================= */
+
+.footer{
+    text-align:center;
+    padding:22px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ============================= */
+/* language system */
+/* ============================= */
+
+[data-lang]{
+    display:none;
+}
+
+body.lang-fr [data-lang="fr"]{
+    display:block;
+}
+
+body.lang-en [data-lang="en"]{
+    display:block;
+}
+
+body.lang-fr [data-lang-inline="fr"]{
+    display:inline;
+}
+
+body.lang-en [data-lang-inline="en"]{
+    display:inline;
+}
+
+/* ============================= */
+/* responsive */
+/* ============================= */
+
+@media(max-width:1100px){
+
+    .hero{
+        grid-template-columns:1fr;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 16%, rgba(142,161,188,0.18), transparent 24%),
-        radial-gradient(circle at 90% 12%, rgba(216,193,160,0.14), transparent 22%),
-        radial-gradient(circle at 50% 82%, rgba(193,206,221,0.08), transparent 28%),
-        linear-gradient(135deg, #060b13 0%, #0c1320 44%, #161f2f 100%);
-      overflow-x: hidden;
+    .projects{
+        grid-template-columns:1fr 1fr;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 28%, transparent 88%);
-      opacity: .35;
+}
+
+@media(max-width:780px){
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    .floating-orb {
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      filter: blur(44px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: .16;
-      animation: drift 14s ease-in-out infinite alternate;
-    }
-    .orb-a { background: #879ab6; top: 6%; left: -80px; }
-    .orb-b { background: #d8c1a0; bottom: 8%; right: -90px; animation-delay: 1.4s; }
-
-    @keyframes drift {
-      from { transform: translate3d(0, 0, 0) scale(1); }
-      to { transform: translate3d(30px, 20px, 0) scale(1.1); }
+    .stats{
+        grid-template-columns:1fr;
     }
 
-    .page {
-      position: relative;
-      z-index: 1;
-      width: min(1180px, calc(100% - 32px));
-      margin: 26px auto 40px;
+    .projects{
+        grid-template-columns:1fr;
     }
 
-    .glass {
-      background: var(--panel);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+    .hero-title{
+        font-size:40px;
     }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 16px;
-      border-radius: 20px;
-      margin-bottom: 18px;
-      position: sticky;
-      top: 12px;
-      z-index: 20;
-      background: rgba(10, 15, 26, 0.72);
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:calc(100% - 16px);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
+    .hero-title{
+        font-size:32px;
     }
 
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: #08101c;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--champagne-soft), var(--champagne));
-      box-shadow: 0 10px 24px rgba(216,193,160,0.28);
+    .main-card,
+    .sidebar{
+        border-radius:22px;
     }
 
-    .brand-text strong {
-      display: block;
-      font-size: 14px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: white;
+}
+
+@media print{
+
+    body{
+        background:white;
     }
 
-    .brand-text span {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
+    .blur,
+    .top-actions{
+        display:none;
     }
 
-    .toolbar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .switch {
-      display: inline-flex;
-      padding: 5px;
-      gap: 5px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--line);
-    }
-
-    .switch button,
-    .btn {
-      appearance: none;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: inherit;
-    }
-
-    .switch button {
-      background: transparent;
-      color: var(--muted);
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .switch button.active {
-      color: #08101c;
-      background: linear-gradient(135deg, var(--champagne-soft), var(--champagne));
-      box-shadow: 0 6px 16px rgba(216,193,160,0.22);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 44px;
-      padding: 0 16px;
-      border-radius: 14px;
-      color: white;
-      background: linear-gradient(135deg, rgba(142,161,188,0.20), rgba(216,193,160,0.12));
-      border: 1px solid rgba(255,255,255,0.10);
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.18);
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--champagne), var(--champagne-soft));
-      color: #08101c;
-      box-shadow: 0 12px 28px rgba(216, 193, 160, 0.22);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
+    .topbar,
     .sidebar,
-    .main {
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-    }
-
-    .sidebar {
-      padding: 28px 24px;
-      position: relative;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.03), transparent 14%),
-        rgba(14,20,32,0.84);
-    }
-
-    .sidebar::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(216,193,160,0.08), transparent 26%, transparent 74%, rgba(142,161,188,0.08));
-      pointer-events: none;
-    }
-
-    .photo-wrap {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin: 4px auto 22px;
-      border-radius: 30px;
-      padding: 4px;
-      background: linear-gradient(135deg, var(--champagne-soft), rgba(142,161,188,0.75));
-      box-shadow: 0 14px 34px rgba(0,0,0,.26);
-      animation: floatCard 5s ease-in-out infinite;
-    }
-
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-
-    .photo {
-      width: 100%;
-      height: 100%;
-      border-radius: 26px;
-      overflow: hidden;
-      background:
-        linear-gradient(rgba(10,15,26,0.12), rgba(10,15,26,0.28)),
-        var(--profile-image) center/cover no-repeat,
-        linear-gradient(135deg, #1b2435, #0b1220 68%);
-      position: relative;
-    }
-
-    .photo::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 30% 18%, rgba(255,255,255,.18), transparent 20%);
-      pointer-events: none;
-    }
-
-    .name {
-      text-align: center;
-      margin-bottom: 8px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      line-height: 1;
-      letter-spacing: .02em;
-    }
-
-    .role {
-      text-align: center;
-      color: var(--champagne-soft);
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-
-    .mini-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-      margin-bottom: 14px;
-      transition: var(--transition);
-      position: relative;
-      z-index: 1;
-    }
-
-    .mini-card:hover { transform: translateY(-3px); }
-
-    .mini-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-      color: white;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: .03em;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--champagne-soft), var(--champagne));
-      box-shadow: 0 0 0 5px rgba(216,193,160,.10);
-    }
-
-    .contact-list,
-    .lang-list,
-    .soft-list {
-      display: grid;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .contact-item strong,
-    .lang-row strong,
-    .soft-list strong {
-      color: white;
-      font-weight: 600;
-    }
-
-    .lang-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .level-bar {
-      flex: 0 0 92px;
-      height: 7px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.09);
-      overflow: hidden;
-    }
-
-    .level-bar span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--champagne), var(--champagne-soft));
-    }
-
-    .main {
-      padding: 0;
-      background: rgba(12, 18, 30, 0.82);
-    }
-
-    .main-hero {
-      position: relative;
-      padding: 36px 34px 30px;
-      background:
-        radial-gradient(circle at top right, rgba(142,161,188,0.16), transparent 30%),
-        linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
-      border-bottom: 1px solid var(--line);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--line);
-      color: var(--champagne-soft);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      margin-bottom: 16px;
-    }
-
-    .headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: .95;
-      margin: 0 0 14px;
-      max-width: 760px;
-    }
-
-    .headline em {
-      color: var(--champagne-soft);
-      font-style: normal;
-    }
-
-    .summary {
-      max-width: 730px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.85;
-      margin: 0 0 22px;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .stat {
-      padding: 16px 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 24px;
-      color: white;
-      margin-bottom: 6px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .content {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      padding: 20px;
-    }
-
-    .section {
-      padding: 24px;
-      border-radius: var(--radius-lg);
-      position: relative;
-      overflow: hidden;
-      background: rgba(255,255,255,0.025);
-    }
-
-    .section::after {
-      content: "";
-      position: absolute;
-      inset: auto auto 0 0;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, rgba(142,161,188,.10), transparent 68%);
-      pointer-events: none;
-      transform: translate(-20%, 25%);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: .02em;
-      color: white;
-    }
-
-    .section-title .line {
-      width: 28px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--champagne), transparent);
-    }
-
-    .section-sub {
-      color: var(--muted);
-      font-size: 13px;
-      text-align: right;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 14px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .skill-card {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      transition: var(--transition);
-    }
-
-    .skill-card:hover { transform: translateY(-4px); }
-
-    .skill-card h4 {
-      margin: 0 0 10px;
-      font-size: 14px;
-      color: var(--champagne-soft);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #f6f7fb;
-    }
-
-    .tag.accent {
-      color: #08101c;
-      background: linear-gradient(135deg, var(--champagne-soft), var(--champagne));
-      border-color: transparent;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 18px;
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      transition: var(--transition);
-    }
-
-    .timeline-item:hover { transform: translateY(-3px); }
-
-    .time {
-      color: var(--champagne-soft);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      line-height: 1.55;
-    }
-
-    .timeline-item h4 {
-      margin: 0;
-      font-size: 18px;
-    }
-
-    .timeline-item .org {
-      display: inline-block;
-      margin: 6px 0 10px;
-      color: var(--steel-soft);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .timeline-item ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 14px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .project {
-      padding: 18px;
-      border-radius: 20px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border: 1px solid var(--line);
-      min-height: 220px;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project:hover { transform: translateY(-5px); }
-
-    .project .project-kicker {
-      color: var(--champagne-soft);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .project h4 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      line-height: 1.25;
-    }
-
-    .project p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.75;
-      flex: 1;
-    }
-
-    .education-list {
-      display: grid;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .edu {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-    }
-
-    .edu strong { display: block; font-size: 16px; margin-bottom: 6px; }
-    .edu span, .edu p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.65;
-    }
-
-    .edu .when {
-      color: var(--champagne-soft);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      white-space: nowrap;
-    }
-
-    .contact-footer {
-      margin-top: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .footer-note {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-      max-width: 620px;
-    }
-
-    [data-lang] { display: none; }
-    body.lang-fr [data-lang="fr"] { display: initial; }
-    body.lang-en [data-lang="en"] { display: initial; }
-    body.lang-fr [data-lang="fr-block"] { display: block; }
-    body.lang-en [data-lang="en-block"] { display: block; }
-    body.lang-fr [data-lang="fr-grid"] { display: grid; }
-    body.lang-en [data-lang="en-grid"] { display: grid; }
-    body.lang-fr [data-lang="fr-inline"] { display: inline; }
-    body.lang-en [data-lang="en-inline"] { display: inline; }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .hero-stats { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .page { width: min(100% - 18px, 100%); margin-top: 12px; }
-      .topbar { position: static; border-radius: 18px; }
-      .toolbar { width: 100%; justify-content: flex-start; }
-      .main-hero { padding: 28px 22px 24px; }
-      .headline { font-size: 42px; }
-      .section { padding: 20px; }
-      .timeline-item { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .edu { flex-direction: column; }
-      .contact-footer { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media print {
-      body { background: white; }
-      body::before, .floating-orb, .topbar { display: none !important; }
-      .page { width: 100%; margin: 0; }
-      .glass {
-        background: white !important;
-        color: #111 !important;
-        backdrop-filter: none !important;
-        box-shadow: none !important;
-        border-color: #ddd !important;
-      }
-      .sidebar, .main, .section, .mini-card, .timeline-item, .project, .edu, .contact-footer, .stat, .skill-card {
-        background: white !important;
-        color: #111 !important;
-        border-color: #ddd !important;
-      }
-      .summary, .section-sub, .contact-list, .lang-list, .soft-list, .timeline-item ul, .project p, .edu span, .edu p, .footer-note {
-        color: #444 !important;
-      }
-      .hero { grid-template-columns: 280px 1fr; }
-      .section::after { display: none; }
-    }
-    .photo-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 26px;
-      display: block;
-    }
-    .name {
-      word-break: break-word;
-      overflow-wrap: break-word;
-      text-align: center;
-    }
-    .last-name {
-      display: block;
-    }
-    .contact-item {
-      word-break: break-word;
-      overflow-wrap: anywhere;
-    }
-    .contact-item a {
-      color: var(--champagne-soft);
-      text-decoration: none;
-      word-break: break-all;
-    }
-    
-    .contact-item a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    .main-card,
+    .timeline-item,
+    .project,
+    .stat,
+    .card{
+        background:white !important;
+        color:black !important;
+        box-shadow:none !important;
+        border:1px solid #ddd !important;
+    }
+
+    .summary,
+    .timeline-item ul,
+    .project p,
+    .stat p,
+    .info-item{
+        color:#444 !important;
+    }
+
+}
+
+/* DATA / SQL */
+.tag-data {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #38bdf8;
+  border-color: rgba(56,189,248,0.25);
+  box-shadow: 0 0 20px rgba(56,189,248,0.08);
+}
+
+/* CLOUD */
+.tag-cloud {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  color: #a78bfa;
+  border-color: rgba(167,139,250,0.25);
+  box-shadow: 0 0 20px rgba(167,139,250,0.10);
+}
+
+/* BI / DASHBOARD */
+.tag-bi {
+  background: linear-gradient(135deg, #3f2b00, #5b3b00);
+  color: #facc15;
+  border-color: rgba(250,204,21,0.25);
+  box-shadow: 0 0 20px rgba(250,204,21,0.10);
+}
+
+/* PROGRAMMATION */
+.tag-dev {
+  background: linear-gradient(135deg, #052e16, #14532d);
+  color: #4ade80;
+  border-color: rgba(74,222,128,0.22);
+  box-shadow: 0 0 20px rgba(74,222,128,0.08);
+}
+
+/* STAR / TECH PRINCIPALE */
+.tag-featured {
+  background: linear-gradient(135deg, #d8c1a0, #f5e7d3);
+  color: #08101c;
+  border: none;
+  font-weight: 800;
+  box-shadow:
+    0 0 18px rgba(216,193,160,0.35),
+    0 10px 25px rgba(216,193,160,0.18);
+}
+
+/* Suppression des animations gênantes */
+section {
+  animation: none;
+}
+
+/* Suppression de l'effet lumineux animé sur les tags */
+.tag-featured::before {
+  content: none;
+}
+
+/* Suppression des animations globales */
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+section {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Amélioration des contrastes */
+body {
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg), var(--bg2));
+}
+
+/* Section Réalisations clés */
+.key-achievements {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+}
+
+.key-achievements h3 {
+  font-size: 20px;
+  color: var(--primary2);
+  margin-bottom: 15px;
+}
+
+.key-achievements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.key-achievements li {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.key-achievements li strong {
+  color: var(--primary);
+}
+.resume-section {
+    margin-top: 40px;
+}
+
+.section-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #4ade80;
+}
+
+.info-item {
+    background: rgba(255,255,255,0.03);
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    border-left: 4px solid #3b82f6;
+}
+
+.info-item h3 {
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+
+.info-item p {
+    margin: 4px 0;
+    opacity: 0.9;
+}
+
+.info-item span {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.info-item ul {
+    margin-top: 10px;
+    padding-left: 18px;
+}
+</style>
 </head>
+
 <body class="lang-fr">
-  <div class="floating-orb orb-a"></div>
-  <div class="floating-orb orb-b"></div>
 
-  <div class="page">
-    <div class="topbar glass reveal">
-      <div class="brand">
-        <div class="brand-mark" style="overflow:hidden; padding:0;">
-          <img src="images/Nathalie.jpg" alt="Nathalie" style="width:100%; height:100%; object-fit:cover; border-radius:14px;">
-        </div>
-        <div class="brand-text">
-          <span> Data Analyst</span>
-          <span>BI Developer</span>
-        </div>
-      </div>
+<div class="blur one"></div>
+<div class="blur two"></div>
 
-      <div class="toolbar">
-        <div class="switch" aria-label="Language switcher">
-          <button type="button" class="active" data-set-lang="fr">FR</button>
-          <button type="button" data-set-lang="en">EN</button>
+<div class="container">
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div class="logo-area">
+
+            <div class="logo">
+                <img src="images/Nathalie.jpg">
+            </div>
+
+            <div class="logo-text">
+                <h2>Nathalie SOLOFOANDRANDRAINA</h2>
+
+                <p>
+                    Data Analyst • BI Developer • Power BI • Google Cloud
+                </p>
+            </div>
+
         </div>
-        <button class="btn" type="button" data-download="fr">
-          <span data-lang="fr-inline">Télécharger PDF FR</span>
-          <span data-lang="en-inline">Download FR PDF</span>
-        </button>
-        <button class="btn primary" type="button" data-download="en">
-          <span data-lang="fr-inline">Télécharger PDF EN</span>
-          <span data-lang="en-inline">Download EN PDF</span>
-        </button>
-      </div>
+
+        <div class="top-actions">
+
+            <!-- language -->
+
+            <div class="lang-switch">
+
+                <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">
+                    FR
+                </button>
+
+                <button class="lang-btn" onclick="setLang('en')" id="btn-en">
+                    EN
+                </button>
+
+            </div>
+
+          <!--   <button class="btn btn-outline" onclick="window.print()">
+
+                <span data-lang-inline="fr">
+                    Télécharger PDF
+                </span>
+
+                <span data-lang-inline="en">
+                    Download PDF
+                </span>
+
+            </button> -->
+
+            <a href="https://andrandrainanathalie.github.io/andrandrainanathalie/"
+               target="_blank"
+               class="btn btn-primary">
+               <span data-lang="fr">Télécharger CV</span>
+               <span data-lang="en">Download CV</span>
+            </a>
+
+        </div>
+
     </div>
+
+    <!-- HERO -->
 
     <div class="hero">
-      <aside class="sidebar glass reveal">
-      <div class="photo-wrap">
-        <img src="images/Nathalie.jpg" alt="Nathalie" class="photo-img">
-      </div>
-        <div class="name">
-          Nathalie SOLOFO<br>
-          <span class="last-name">ANDRANDRAINA</span>
-        </div>
-        <div class="role">Data Analyst • BI Developer</div>
 
-        <div class="mini-card">
-          <div class="mini-title"><span class="dot"></span><span data-lang="fr-inline">Contact</span><span data-lang="en-inline">Contact</span></div>
-          <div class="contact-list">
-            <div class="contact-item"><strong>Email :</strong> nathalie.aps.p2@gmail.com</div>
-            <div class="contact-item"><strong>Téléphone :</strong> +261 34 45 042 09</div>
-            <div class="contact-item"><strong>LinkedIn :</strong> <a href="https:linkedin.com/in/nathalie-andrandraina" target="_blank">linkedin.com/in/nathalie-andrandraina </a></div>
-            <div class="contact-item"><strong>GitHub :</strong>  <a href="https:github.com/andrandrainanathalie" target="_blank"> github.com/andrandrainanathalie </a></div>
-            <div class="contact-item">
-            <strong>Portfolio :</strong>
-            <a href="https://andrandrainanathalie.github.io/andrandrainanathalie/" target="_blank">
-              andrandrainanathalie.github.io
-            </a>
-          </div>
-            <div class="contact-item"><strong data-lang="fr-inline">Localisation :</strong><strong data-lang="en-inline">Location:</strong> Antananarivo, Madagascar</div>
-          </div>
-        </div>
+        <!-- SIDEBAR -->
 
-        <div class="mini-card">
-          <div class="mini-title"><span class="dot"></span><span data-lang="fr-inline">Langues</span><span data-lang="en-inline">Languages</span></div>
-          <div class="lang-list">
-            <div class="lang-row"><strong>Malagasy</strong><div class="level-bar"><span style="width:100%"></span></div></div>
-            <div class="lang-row"><strong>Français</strong><div class="level-bar"><span style="width:92%"></span></div></div>
-            <div class="lang-row"><strong>English</strong><div class="level-bar"><span style="width:66%"></span></div></div>
-          </div>
-        </div>
+        <aside class="sidebar">
 
-        <div class="mini-card">
-          <div class="mini-title"><span class="dot"></span><span data-lang="fr-inline">Atouts</span><span data-lang="en-inline">Strengths</span></div>
-          <div class="soft-list">
-            <div><strong data-lang="fr-inline">Positionnement :</strong><strong data-lang="en-inline">Positioning:</strong> <span data-lang="fr">profil orienté data, BI et décision.</span><span data-lang="en">data, BI, and decision-oriented profile.</span></div>
-            <div><strong data-lang="fr-inline">Analyse :</strong><strong data-lang="en-inline">Analysis:</strong> <span data-lang="fr">capacité à transformer des données complexes en décisions exploitables.</span><span data-lang="en">ability to convert complex data into actionable decisions.</span></div>
-            <div><strong data-lang="fr-inline">Méthode :</strong><strong data-lang="en-inline">Method:</strong> <span data-lang="fr">rigueur, autonomie et sens du détail.</span><span data-lang="en">rigor, autonomy, and strong attention to detail.</span></div>
-            <div><strong data-lang="fr-inline">Impact :</strong><strong data-lang="en-inline">Impact:</strong> <span data-lang="fr">orientation résultats, reporting et performance.</span><span data-lang="en">results-oriented mindset, reporting, and performance tracking.</span></div>
-          </div>
-        </div>
-      </aside>
+            <div class="profile-top">
 
-      <main class="main glass reveal">
-        <div class="main-hero">
-          <div class="badge">
-            <span data-lang="fr-inline">Profil cible • Maurice / International</span>
-            <span data-lang="en-inline">Target profile • Mauritius / International</span>
-          </div>
-         <br>
-          <h1 class="headline" data-lang="fr">Transformer la donnée en <em>insights</em>, tableaux de bord et décisions.</h1>
-          <h1 class="headline" data-lang="en">Turning data into <em>insights</em>, dashboards, and business decisions.</h1>
-          <br>
-          <p class="summary" data-lang="fr">
-            Data Analyst avec plus de 5 ans d’expérience en Business Intelligence, reporting, automatisation et traitement de données. Spécialisée en SQL, Python, BigQuery, Looker et ETL, avec un fort background technique en développement et analyse opérationnelle. Habituée à traiter de gros volumes de données, construire des dashboards et produire des analyses utiles à la prise de décision.
-          </p>
-          <p class="summary" data-lang="en">
-            Data Analyst with 5+ years of experience in Business Intelligence, reporting, automation, and data processing. Specialized in SQL, Python, BigQuery, Looker, and ETL, with a strong technical background in development and operational analytics. Used to handling large datasets, building dashboards, and delivering business-ready insights for decision-making.
-          </p>
+                <div class="avatar">
+                    <img src="images/Nathalie.jpg">
+                </div>
 
-          <div class="hero-stats" data-lang="fr-grid">
-            <div class="stat"><strong>5+ ans</strong><span>en analyse de données, BI, reporting et outils métiers.</span></div>
-            <div class="stat"><strong>50 000+</strong><span>interactions clients analysées par mois chez Konecta.</span></div>
-            <div class="stat"><strong>SQL • Python • GCP</strong><span>socle technique principal pour l’analyse, l’automatisation et la visualisation.</span></div>
-          </div>
-          <div class="hero-stats" data-lang="en-grid">
-            <div class="stat"><strong>5+ years</strong><span>in data analysis, BI, reporting, and business tools.</span></div>
-            <div class="stat"><strong>50,000+</strong><span>customer interactions analyzed monthly at Konecta.</span></div>
-            <div class="stat"><strong>SQL • Python • GCP</strong><span>core stack for analytics, automation, and visualization.</span></div>
-          </div>
-        </div>
+                <div class="name">
+                    Nathalie<br>
+                    SOLOFOANDRANDRAINA
+                </div>
 
-        <div class="content">
-          <section class="section glass reveal">
-            <div class="section-header">
-              <div class="section-title"><span class="line"></span><span data-lang="fr-inline">Compétences techniques</span><span data-lang="en-inline">Technical skills</span></div>
+                <div class="role">
+                    DATA ANALYST & BI DEVELOPER
+                </div>
+
             </div>
 
-            <div class="skills-grid">
-              <div class="skill-card">
-                <h4>Data Analysis</h4>
-                <div class="skill-tags">
-                  <span class="tag accent">SQL</span>
-                  <span class="tag">Data Cleaning</span>
-                  <span class="tag">Reporting</span>
-                  <span class="tag">Business Insights</span>
-                </div>
-              </div>
-              <div class="skill-card">
-                <h4>Cloud & BI</h4>
-                <div class="skill-tags">
-                  <span class="tag accent">BigQuery</span>
-                  <span class="tag accent">Looker</span>
-                  <span class="tag">Power BI</span>
-                  <span class="tag">Excel</span>
-                </div>
-              </div>
-              <div class="skill-card">
-                <h4 data-lang="fr">Programmation</h4>
-                <h4 data-lang="en">Programming</h4>
-                <div class="skill-tags">
-                  <span class="tag accent">Python</span>
-                  <span class="tag">C#</span>
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">PHP</span>
-                </div>
-              </div>
-              <div class="skill-card">
-                <h4 data-lang="fr">ETL & Bases</h4>
-                <h4 data-lang="en">ETL & Databases</h4>
-                <div class="skill-tags">
-                  <span class="tag accent">NEON</span>
-                  <span class="tag">Talend ETL</span>
-                  <span class="tag">SQL Server</span>
-                  <span class="tag">MySQL</span>
-                  <span class="tag">PostgreSQL</span>
-                </div>
-              </div>
-            </div>
-          </section>
+            <!-- contact -->
 
-          <section class="section glass reveal">
-            <div class="section-header">
-              <div class="section-title"><span class="line"></span><span data-lang="fr-inline">Expérience professionnelle</span><span data-lang="en-inline">Professional experience</span></div>
-              <div class="section-sub" data-lang="fr">Impact, analyse et automatisation</div>
-              <div class="section-sub" data-lang="en">Impact, analytics, and automation</div>
-            </div>
+            <div class="card">
 
-            <div class="timeline">
-              <article class="timeline-item">
-                <div class="time">2020 - Présent<br><span data-lang="en-inline">Present</span></div>
-                <div>
-                  <h4 data-lang="fr">Data Analyst / BI Developer</h4>
-                  <h4 data-lang="en">Data Analyst / BI Developer</h4>
-                  <span class="org">Konecta Madagascar</span>
-                  <ul data-lang="fr-block">
-                    <li>Analyse et traitement de plus de 50 000 interactions clients par mois pour le suivi opérationnel et la performance.</li>
-                    <li>Conception de dashboards et reportings pour le pilotage d’activité, le suivi KPI et l’aide à la décision.</li>
-                    <li>Développement de requêtes SQL complexes pour l’extraction, la transformation et la consolidation de données.</li>
-                    <li>Automatisation de reportings et traitements via Python et outils internes comme NEON.</li>
-                    <li>Participation au reporting du dispositif Jeux Olympiques 2024</li>
-                    <li>Développement sur solutions call center et consolidation BI autour de Vocalcom, Hermes.net et CPHONE.</li>
-                  </ul>
-                  <ul data-lang="en-block">
-                    <li>Analyzed and processed more than 50,000 customer interactions monthly for operations monitoring and performance tracking.</li>
-                    <li>Designed dashboards and reports to support activity management, KPI follow-up, and decision-making.</li>
-                    <li>Built complex SQL queries for extraction, transformation, and data consolidation.</li>
-                    <li>Automated reporting and processing tasks using Python, Excel, and internal tools such as NEON.</li>
-                    <li>Contributed to Olympic Games 2024 reporting and performance improvement analysis.</li>
-                    <li>Worked on call center solutions and BI consolidation around Vocalcom, Hermes.net, and CPHONE.</li>
-                  </ul>
+                <h3>
+
+                    <span data-lang="fr">Contact</span>
+                    <span data-lang="en">Contact</span>
+
+                </h3>
+
+                <div class="info">
+
+                    <div class="info-item">
+                        <strong>Email :</strong><br>
+                        nathalie.aps.p2@gmail.com
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Téléphone :</strong><br>
+                        +261 34 45 042 09
+                    </div>
+
+                    <div class="info-item">
+                        <strong>LinkedIn :</strong><br>
+
+                        <a href="https://linkedin.com/in/nathalie-andrandraina" target="_blank">
+                            linkedin.com/in/nathalie-andrandraina
+                        </a>
+                    </div>
+
+                    <div class="info-item">
+                        <strong>GitHub :</strong><br>
+
+                        <a href="https://github.com/andrandrainanathalie" target="_blank">
+                            github.com/andrandrainanathalie
+                        </a>
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Portfolio :</strong><br>
+
+                        <a href="https://andrandrainanathalie.github.io/andrandrainanathalie/" target="_blank">
+                            andrandrainanathalie.github.io
+                        </a>
+                    </div>
+
+                    <div class="info-item">
+
+                        <strong>
+
+                            <span data-lang="fr">Localisation :</span>
+                            <span data-lang="en">Location :</span>
+
+                        </strong><br>
+
+                        Antananarivo, Madagascar
+
+                    </div>
+
                 </div>
-              </article>
 
-              <article class="timeline-item">
-                <div class="time">2022 - 2023</div>
-                <div>
-                  <h4 data-lang="fr">Data & App Developer</h4>
-                  <h4 data-lang="en">Data & App Developer</h4>
-                  <span class="org">IOSTC Madagascar et FITIATECH • Side Project</span>
-                  <ul data-lang="fr-block">
-                    <li>Création d’outils internes de gestion RH et de suivi d’équipements en C#.</li>
-                    <li>Production de reportings et dashboards pour besoins internes de pilotage.</li>
-                    <li>Travail sur bases SQL Server et MySQL dans une logique d’applications métiers.</li>
-                    <li>Développement de solutions web avec intégration de bases de données</li>
-                    <li>Mise en place de logiques d’analyse et automatisation des processus</li>
-                  </ul>
-                  <ul data-lang="en-block">
-                    <li>Built internal HR and equipment management tools using C#.</li>
-                    <li>Delivered reporting and dashboarding for internal management needs.</li>
-                    <li>Worked with SQL Server and MySQL in business application contexts.</li>
-                    <li>Development of web solutions with database integration</li>
-                    <li>Implementation of data analysis logic and process automation</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="timeline-item">
-                <div class="time">2018 - 2020</div>
-                <div>
-                  <h4 data-lang="fr">Data & App Developer</h4>
-                  <h4 data-lang="en">Data & App Developer</h4>
-                  <span class="org">SmartOne Madagascar</span>
-                  <ul data-lang="fr-block">
-                    <li>Mise en place d’outils de traitement de données BPO en PHP et Angular.</li>
-                    <li>Développement d’applications temps réel pour le suivi des indicateurs de performance agents via WebSocket.</li>
-                    <li>Création de dashboards et analyses de données à destination des utilisateurs métiers.</li>
-                    <li>Maintenance de sites et outils infographiques en PHP et JavaScript.</li>
-                  </ul>
-                  <ul data-lang="en-block">
-                    <li>Implemented BPO data processing tools using PHP and Angular.</li>
-                    <li>Built real-time applications for monitoring agent performance indicators via WebSocket.</li>
-                    <li>Created dashboards and analytics outputs for business users.</li>
-                    <li>Maintained infographic websites and tools in PHP and JavaScript.</li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section glass reveal">
-            <div class="section-header">
-              <div class="section-title"><span class="line"></span><span data-lang="fr-inline">Projets mis en valeur</span><span data-lang="en-inline">Highlighted projects</span></div>
             </div>
 
-            <div class="projects-grid">
-              <article class="project">
-                <div class="project-kicker">Dashboarding</div>
-                <h4 data-lang="fr">Call Center Analytics Dashboard</h4>
-                <h4 data-lang="en">Call Center Analytics Dashboard</h4>
-                <p data-lang="fr">Création de tableaux de bord pour l’analyse de la performance agents, du volume d’activité et des indicateurs de suivi en environnement centre d’appel.</p>
-                <p data-lang="en">Built dashboards to analyze agent performance, activity volume, and operational tracking metrics in a call center environment.</p>
-                <div class="skill-tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Excel</span></div>
-              </article>
+            <!-- skills -->
 
-              <article class="project">
-                <div class="project-kicker">Automation</div>
-                <h4 data-lang="fr">Automatisation de reporting</h4>
-                <h4 data-lang="en">Reporting automation</h4>
-                <p data-lang="fr">Automatisation de traitements et de sorties reporting pour réduire les tâches répétitives et accélérer la mise à disposition d’insights opérationnels.</p>
-                <p data-lang="en">Automated processing and reporting outputs to reduce repetitive tasks and speed up operational insight delivery.</p>
-                <div class="skill-tags"><span class="tag">Python</span><span class="tag">NEON</span><span class="tag">SQL</span></div>
-              </article>
+            <div class="card">
 
-              <article class="project">
-                <div class="project-kicker">Cloud / BI</div>
-                <h4 data-lang="fr">Montée en compétence Google Cloud</h4>
-                <h4 data-lang="en">Google Cloud upskilling</h4>
-                <p data-lang="fr">Renforcement ciblé sur BigQuery et Looker pour évoluer vers un environnement data moderne, cloud et international.</p>
-                <p data-lang="en">Focused skill development on BigQuery and Looker to grow into a modern, cloud-based, international data environment.</p>
-                <div class="skill-tags"><span class="tag accent">BigQuery</span><span class="tag accent">Looker</span><span class="tag">Data Modeling</span></div>
-              </article>
-            </div>
-          </section>
+                <h3>
 
-          <section class="section glass reveal">
-            <div class="section-header">
-              <div class="section-title"><span class="line"></span>
-                <span data-lang="fr-inline">Formation & certifications</span><span data-lang="en-inline">Education & certifications</span></div>
-              <div class="section-sub" data-lang="fr">Base technique solide, orientation data</div>
-              <div class="section-sub" data-lang="en">Strong technical foundation, data-oriented path</div>
-            </div>
+                    <span data-lang="fr">
+                        Compétences techniques
+                    </span>
 
-            <div class="education-list">
-              <div class="edu">
-                <div>
-                  <strong>Master of Information Technology</strong>
-                  <p>IT-University • Application & Web Development Project (M1 MBDS)</p>
+                    <span data-lang="en">
+                        Technical Skills
+                    </span>
+
+                </h3>
+
+                <div class="skills">
+
+                    <div class="skill tag-featured">SQL</div>
+                    <div class="skill tag-featured">Power BI</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">BigQuery</div>
+                    <div class="skill">Looker</div>
+                    <div class="skill tag-featured">Google Cloud</div>
+                    <div class="skill">ETL</div>
+                    <div class="skill">Data Visualization</div>
+                    <div class="skill">Reporting</div>
+                    <div class="skill">Dashboarding</div>
+                    <div class="skill">KPI Analysis</div>
+                    <div class="skill">Data Cleaning</div>
+                    <div class="skill tag-featured">Business Intelligence</div>
+                    <div class="skill">MySQL</div>
+                    <div class="skill">PostgreSQL</div>
+                    <div class="skill">SQL Server</div>
+                    <div class="skill">PHP</div>
+                    <div class="skill">JavaScript</div>
+
                 </div>
-                <div class="when">2018 - 2019</div>
-              </div>
-              <div class="edu">
-                <div>
-                  <strong>Bachelor of Computer Science</strong>
-                  <p>IT-University • Bachelor en développement d’application</p>
-                </div>
-                <div class="when">2015 - 2018</div>
-              </div>
-              <div class="edu">
-                <div>
-                  <strong data-lang="fr">Certifications & apprentissage </strong>
-                  <p data-lang="fr">Power BI, SQL, RGPD, outils métier, montée en compétence Data / Google Cloud.</p>
-                  <p data-lang="en">Power BI, SQL, GDPR, business tools, continuous upskilling in Data / Google Cloud.</p>
-                </div>
-                <div class="when" data-lang="fr">En continu</div>
-                <div class="when" data-lang="en">Ongoing</div>
-              </div>
-            </div>
-          </section>
 
-          <div class="contact-footer glass reveal">
-            <div>
-              <div class="section-title" style="margin-bottom:8px;"><span class="line"></span><span data-lang="fr-inline">Disponibilité</span><span data-lang="en-inline">Availability</span></div>
-              <div class="footer-note" data-lang="fr">Ouverte aux opportunités en tant que <strong>Data Analyst</strong>, notamment à Maurice ou dans un contexte international. Intérêt fort pour les rôles mêlant analyse, reporting, BI et environnement cloud.</div>
-              <div class="footer-note" data-lang="en">Open to opportunities as a <strong>Data Analyst</strong>, especially in Mauritius or in international environments. Strong interest in roles combining analytics, reporting, BI, and cloud ecosystems.</div>
             </div>
-            <button class="btn primary" type="button" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-              <span data-lang="fr-inline">Retour en haut</span>
-              <span data-lang="en-inline">Back to top</span>
-            </button>
-          </div>
-        </div>
-      </main>
+
+            <!-- language -->
+
+            <div class="card">
+
+                <h3>
+
+                    <span data-lang="fr">Langues</span>
+                    <span data-lang="en">Languages</span>
+
+                </h3>
+
+                <div class="info">
+
+                    <div class="info-item">
+                        <strong>Malagasy :</strong> Native
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Français :</strong> Professionnel avancé
+                    </div>
+
+                    <div class="info-item">
+                        <strong>English :</strong> Professional
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="main">
+
+            <!-- intro -->
+
+            <section class="main-card">
+
+                <div class="badge">
+
+                    <span data-lang="fr">
+                        PROFIL INTERNATIONAL • DATA & BUSINESS INTELLIGENCE
+                    </span>
+
+                    <span data-lang="en">
+                        INTERNATIONAL PROFILE • DATA & BUSINESS INTELLIGENCE
+                    </span>
+
+                </div>
+
+                <!-- FR -->
+
+                <div data-lang="fr">
+
+                    <h1 class="hero-title">
+                        Transformer la donnée en
+                        <span>insights stratégiques</span>,
+                        tableaux de bord et décisions métier.
+                    </h1>
+
+                    <p class="summary">
+
+                        Data Analyst et BI Developer avec plus de 5 ans d’expérience dans l’analyse de données, le reporting, l’automatisation et la Business Intelligence. Expertise sur SQL, Power BI, Python, BigQuery, Looker et Google Cloud. Habituée à manipuler de grands volumes de données, créer des dashboards décisionnels et produire des analyses à forte valeur métier dans des environnements internationaux et orientés performance.
+
+                    </p>
+
+                </div>
+
+                <!-- EN -->
+
+                <div data-lang="en">
+
+                    <h1 class="hero-title">
+                        Turning complex data into
+                        <span>business insights</span>,
+                        dashboards and strategic decisions.
+                    </h1>
+
+                    <p class="summary">
+
+                        Data Analyst and BI Developer with 5+ years of experience in analytics, reporting, automation and Business Intelligence. Strong expertise in SQL, Power BI, Python, BigQuery, Looker and Google Cloud technologies. Experienced in handling large datasets, building dashboards and delivering business-driven insights in performance-oriented international environments.
+
+                    </p>
+
+                </div>
+
+                <!-- stats -->
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <h2>5+</h2>
+
+                        <p>
+
+                            <span data-lang="fr">
+                                années d’expérience en analyse de données, reporting et Business Intelligence.
+                            </span>
+
+                            <span data-lang="en">
+                                years of experience in data analysis, reporting and Business Intelligence.
+                            </span>
+
+                        </p>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <h2>50K+</h2>
+
+                        <p>
+
+                            <span data-lang="fr">
+                                interactions clients analysées chaque mois chez Konecta.
+                            </span>
+
+                            <span data-lang="en">
+                                customer interactions analyzed monthly at Konecta.
+                            </span>
+
+                        </p>
+
+                    </div>
+
+                    <div class="stat">
+
+                        <h2>Power BI • GCP</h2>
+
+                        <p>
+
+                            <span data-lang="fr">
+                                dashboards, reporting automatisé et environnement cloud Google.
+                            </span>
+
+                            <span data-lang="en">
+                                dashboards, automated reporting and Google Cloud environment.
+                            </span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- experience -->
+
+            <section class="main-card">
+
+                <div class="section-title">
+                    <div class="line"></div>
+
+                    <h2>
+
+                        <span data-lang="fr">
+                            Expérience professionnelle
+                        </span>
+
+                        <span data-lang="en">
+                            Professional Experience
+                        </span>
+
+                    </h2>
+                </div>
+
+                <!-- KONeCTA -->
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            2020 • PRESENT
+                        </div>
+
+                        <h3>
+                            Data Analyst / BI Developer
+                        </h3>
+
+                        <div class="company">
+                            Konecta Madagascar
+                        </div>
+
+                        <!-- FR -->
+
+                        <div data-lang="fr">
+
+                            <ul>
+
+                                <li>
+                                    Analyse et traitement de plus de 50 000 interactions clients par mois pour le suivi opérationnel et la performance.
+                                </li>
+
+                                <li>
+                                    Création de dashboards Power BI et reportings décisionnels pour le suivi KPI et le pilotage métier.
+                                </li>
+
+                                <li>
+                                    Développement de requêtes SQL complexes pour l’extraction, la transformation et la consolidation des données.
+                                </li>
+
+                                <li>
+                                    Utilisation de Google Cloud Platform, BigQuery et Looker dans un environnement data moderne.
+                                </li>
+
+                                <li>
+                                    Automatisation des traitements et reportings via Python et outils BI internes.
+                                </li>
+
+                                <li>
+                                    Participation au reporting du dispositif Jeux Olympiques 2024.
+                                </li>
+
+                                <li>
+                                    Travail autour des solutions Vocalcom, Hermes.net et CPHONE.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <!-- EN -->
+
+                        <div data-lang="en">
+
+                            <ul>
+
+                                <li>
+                                    Analyzed and processed more than 50,000 customer interactions monthly for operational monitoring and performance tracking.
+                                </li>
+
+                                <li>
+                                    Built Power BI dashboards and business reporting solutions for KPI monitoring and decision-making.
+                                </li>
+
+                                <li>
+                                    Developed advanced SQL queries for extraction, transformation and consolidation of business data.
+                                </li>
+
+                                <li>
+                                    Worked with Google Cloud Platform, BigQuery and Looker in a modern cloud analytics environment.
+                                </li>
+
+                                <li>
+                                    Automated reporting and operational workflows using Python and BI tools.
+                                </li>
+
+                                <li>
+                                    Contributed to Olympic Games 2024 reporting activities.
+                                </li>
+
+                                <li>
+                                    Worked on call center ecosystems including Vocalcom, Hermes.net and CPHONE.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <!-- fitiatech -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-date">
+                            2022 • 2023
+                        </div>
+
+                        <h3>
+                            Data & Application Developer
+                        </h3>
+
+                        <div class="company">
+                            FITIATECH / IOSTC Madagascar
+                        </div>
+
+                        <div data-lang="fr">
+
+                            <ul>
+
+                                <li>
+                                    Développement d’applications métiers et outils internes RH.
+                                </li>
+
+                                <li>
+                                    Création de dashboards et reportings analytiques.
+                                </li>
+
+                                <li>
+                                    Implémentation de solutions SQL Server et MySQL.
+                                </li>
+
+                                <li>
+                                    Mise en place de logiques d’automatisation et de traitement de données.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <div data-lang="en">
+
+                            <ul>
+
+                                <li>
+                                    Developed business applications and internal HR tools.
+                                </li>
+
+                                <li>
+                                    Created dashboards and analytical reporting solutions.
+                                </li>
+
+                                <li>
+                                    Implemented SQL Server and MySQL based systems.
+                                </li>
+
+                                <li>
+                                    Built automation and data processing workflows.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- projects -->
+
+            <section class="main-card">
+
+                <div class="section-title">
+                    <div class="line"></div>
+
+                    <h2>
+
+                        <span data-lang="fr">
+                            Projets Data & BI
+                        </span>
+
+                        <span data-lang="en">
+                            Data & BI Projects
+                        </span>
+
+                    </h2>
+                </div>
+
+                <div class="projects">
+
+                    <div class="project">
+
+                        <div class="type">
+                            POWER BI
+                        </div>
+
+                        <h3>
+
+                            <span data-lang="fr">
+                                Dashboard Call Center
+                            </span>
+
+                            <span data-lang="en">
+                                Call Center Dashboard
+                            </span>
+
+                        </h3>
+
+                        <p>
+
+                            <span data-lang="fr">
+                                Création de tableaux de bord analytiques pour le suivi de performance des agents et indicateurs opérationnels.
+                            </span>
+
+                            <span data-lang="en">
+                                Built analytical dashboards for agent performance tracking and operational KPI monitoring.
+                            </span>
+
+                        </p>
+
+                        <div class="project-tags">
+                            <div class="skill">Power BI</div>
+                            <div class="skill">SQL</div>
+                            <div class="skill">Excel</div>
+                        </div>
+
+                    </div>
+
+                    <div class="project">
+
+                        <div class="type">
+                            GOOGLE CLOUD
+                        </div>
+
+                        <h3>
+                            BigQuery & Looker
+                        </h3>
+
+                        <p>
+
+                            <span data-lang="fr">
+                                Analyse cloud et reporting avancé avec BigQuery et Looker dans un environnement orienté data.
+                            </span>
+
+                            <span data-lang="en">
+                                Cloud analytics and advanced reporting using BigQuery and Looker in a data-driven environment.
+                            </span>
+
+                        </p>
+
+                        <div class="project-tags">
+                            <div class="skill">BigQuery</div>
+                            <div class="skill">Looker</div>
+                            <div class="skill">Google Cloud</div>
+                        </div>
+
+                    </div>
+
+                    <div class="project">
+
+                        <div class="type">
+                            AUTOMATION
+                        </div>
+
+                        <h3>
+
+                            <span data-lang="fr">
+                                Reporting Automatisé
+                            </span>
+
+                            <span data-lang="en">
+                                Reporting Automation
+                            </span>
+
+                        </h3>
+
+                        <p>
+
+                            <span data-lang="fr">
+                                Automatisation des workflows et reportings afin d’améliorer la rapidité et la qualité des analyses.
+                            </span>
+
+                            <span data-lang="en">
+                                Automated workflows and reporting pipelines to improve speed and quality of analytics delivery.
+                            </span>
+
+                        </p>
+
+                        <div class="project-tags">
+                            <div class="skill">Python</div>
+                            <div class="skill">ETL</div>
+                            <div class="skill">SQL</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+           <!-- FORMATION / EDUCATION -->
+            <section class="resume-section">
+
+                <h2 class="section-title">
+                    <span data-lang="fr">🎓 Formation</span>
+                    <span data-lang="en">🎓 Education</span>
+                </h2>
+
+                <div class="info">
+
+                    <!-- MASTER -->
+                    <div class="info-item">
+
+                        <h3>
+                            <span data-lang="fr">Master en Technologie de l'Information</span>
+                            <span data-lang="en">Master's Degree in Information Technology</span>
+                        </h3>
+
+                        <p><strong>IT-University</strong>, Antananarivo</p>
+
+                        <span>
+                            <span data-lang="fr">Nov. 2019 – Janv. 2021</span>
+                            <span data-lang="en">Nov. 2019 – Jan. 2021</span>
+                        </span>
+
+                        <ul>
+                            <li>SQL</li>
+                            <li>Python Application & Data Analyst Project (M1 MBDS)</li>
+                        </ul>
+
+                    </div>
+
+                    <!-- LICENCE -->
+                    <div class="info-item">
+
+                        <h3>
+                            <span data-lang="fr">Licence en Développement d’Application</span>
+                            <span data-lang="en">Bachelor's Degree in Application Development</span>
+                        </h3>
+
+                        <p><strong>IT-University</strong>, Antananarivo</p>
+
+                        <span>
+                            <span data-lang="fr">Oct. 2015 – Oct. 2018</span>
+                            <span data-lang="en">Oct. 2015 – Oct. 2018</span>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- COURSES -->
+            <section class="resume-section">
+
+                <h2 class="section-title">
+                    <span data-lang="fr">📚 Cours & Certifications</span>
+                    <span data-lang="en">📚 Courses & Certifications</span>
+                </h2>
+
+                <div class="info">
+
+                    <div class="info-item">
+
+                        <h3>
+                            <span data-lang="fr">Cours d’anglais – Niveau intermédiaire</span>
+                            <span data-lang="en">English Course – Intermediate Level</span>
+                        </h3>
+
+                        <p><strong>MTTC</strong>, Antananarivo</p>
+
+                        <span>
+                            <span data-lang="fr">Févr. 2025</span>
+                            <span data-lang="en">Feb. 2025</span>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- Section Réalisations clés -->
+            <section class="key-achievements">
+              <h3>
+                <span data-lang="fr">Réalisations clés</span>
+                <span data-lang="en">Key Achievements</span>
+              </h3>
+              <ul>
+                <li>
+                  <strong data-lang="fr">Augmentation de 25%</strong> <span data-lang="fr">de l'efficacité des processus grâce à l'automatisation des workflows.</span>
+                  <strong data-lang="en">Increased efficiency by 25%</strong> <span data-lang="en">through workflow automation.</span>
+                </li>
+                <li>
+                  <strong data-lang="fr">Réduction de 30%</strong> <span data-lang="fr">du temps de reporting avec des tableaux de bord Power BI optimisés.</span>
+                  <strong data-lang="en">Reduced reporting time by 30%</strong> <span data-lang="en">with optimized Power BI dashboards.</span>
+                </li>
+                <li>
+                  <strong data-lang="fr">Analyse de données</strong> <span data-lang="fr">pour des projets internationaux, y compris les Jeux Olympiques 2024.</span>
+                  <strong data-lang="en">Data analysis</strong> <span data-lang="en">for international projects, including the 2024 Olympic Games.</span>
+                </li>
+              </ul>
+            </section>
+            <div class="footer">
+
+                <span data-lang="fr">
+                    Disponible pour des opportunités internationales • Data Analyst • BI Developer
+                </span>
+
+                <span data-lang="en">
+                    Available for international opportunities • Data Analyst • BI Developer
+                </span>
+
+            </div>
+        </main>
+
     </div>
-  </div>
 
-  <script>
-    const body = document.body;
-    const langButtons = document.querySelectorAll('[data-set-lang]');
-    const downloadButtons = document.querySelectorAll('[data-download]');
+</div>
 
-    function setLang(lang) {
-      body.classList.remove('lang-fr', 'lang-en');
-      body.classList.add(`lang-${lang}`);
-      langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.setLang === lang));
-      document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
-    }
+<script>
 
-    langButtons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.setLang)));
+function setLang(lang){
 
-    downloadButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetLang = btn.dataset.download;
-        const current = body.classList.contains('lang-fr') ? 'fr' : 'en';
-        setLang(targetLang);
-        setTimeout(() => {
-          window.print();
-          setTimeout(() => setLang(current), 300);
-        }, 120);
-      });
-    });
+    document.body.classList.remove('lang-fr','lang-en');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12 });
+    document.body.classList.add('lang-' + lang);
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    setLang('fr');
-  </script>
+    document.getElementById('btn-fr').classList.remove('active');
+    document.getElementById('btn-en').classList.remove('active');
+
+    document.getElementById('btn-' + lang).classList.add('active');
+
+    document.documentElement.lang = lang;
+}
+
+</script>
+
 </body>
 </html>
